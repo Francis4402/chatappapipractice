@@ -18,6 +18,13 @@ class _MessageScreenState extends State<MessageScreen> {
   void initState() {
     super.initState();
     controller.getMessages();
+    controller.websocket();
+  }
+
+  @override
+  void dispose() {
+    controller.channel.sink.close();
+    super.dispose();
   }
 
 
